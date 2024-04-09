@@ -55,7 +55,9 @@ function hello(event) {
     let id = (event.explicitOriginalTarget.dataset.id)
     localStorage.clear();
     localStorage.setItem("anime__id", id);
-    window.location.assign("/main.html");
+    // window.location.assign("/main.html");
+
+    window.location.href = 'main.html';
 }
 
 GetData();

@@ -133,7 +133,9 @@ const generateSearch = () => {
       if (typeof Storage !== "undefined") {
         localStorage.clear();
         localStorage.setItem("anime__id", q.dataset.id);
-        window.location.assign("/main.html");
+        // window.location.assign("/main.html");
+
+        window.location.href = 'main.html';
       } else {
         window.alert("Your Browser is not Supported!");
       }
