@@ -1,6 +1,5 @@
-// CLear Web Storage 
+// CLear Web Storage
 localStorage.clear();
-
 
 let headerContents = document.querySelectorAll(".header__content");
 
@@ -31,6 +30,14 @@ const GenerateGenres = (genres) => {
   let div = ``;
   genres.forEach((element) => {
     div += `<div class="genre">${element.name}</div>`;
+  });
+  return div;
+};
+
+const GenerateGenres2 = (genres) => {
+  let div = ``;
+  genres.forEach((element) => {
+    div += `<div class="span" >${element.name}</div>`;
   });
   return div;
 };
@@ -115,7 +122,7 @@ const recommendation = async () => {
   ).data;
 
   let count = 0;
-  while (count < 5) {
+  while (count < 4) {
     error(response[count].entry[1].mal_id);
     count++;
   }
@@ -128,7 +135,7 @@ const generateGenres = async () => {
   animeGenres.innerHTML = "";
   animeDisplay.innerHTML = "";
   const response = await (
-    await (await fetch(`https://api.jikan.moe/v4/genres/anime`)).json()
+    await (await fetch(`assets/js/genres.json`)).json()
   ).data;
 
   response.forEach((element) => {
@@ -142,6 +149,7 @@ const generateGenres = async () => {
 generateGenres();
 
 function goto(event) {
+  console.log('Working....')
   let id = event.explicitOriginalTarget.classList[1];
   localStorage.clear();
   localStorage.setItem("anime__id", id);
@@ -149,7 +157,6 @@ function goto(event) {
 
   window.location.href = "main.html";
 }
-
 
 const displayStar = (score) => {
   let stars = "";
@@ -169,7 +176,7 @@ const displayStar = (score) => {
     i++;
   }
 
-  if (score%1){
+  if (score % 1) {
     stars += `
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -179,11 +186,10 @@ const displayStar = (score) => {
     d="M288 376.4l.1-.1 26.4 14.1 85.2 45.5-16.5-97.6-4.8-28.7 20.7-20.5 70.1-69.3-96.1-14.2-29.3-4.3-12.9-26.6L288.1 86.9l-.1 .3V376.4zm175.1 98.3c2 12-3 24.2-12.9 31.3s-23 8-33.8 2.3L288.1 439.8 159.8 508.3C149 514 135.9 513.1 126 506s-14.9-19.3-12.9-31.3L137.8 329 33.6 225.9c-8.6-8.5-11.7-21.2-7.9-32.7s13.7-19.9 25.7-21.7L195 150.3 259.4 18c5.4-11 16.5-18 28.8-18s23.4 7 28.8 18l64.3 132.3 143.6 21.2c12 1.8 22 10.2 25.7 21.7s.7 24.2-7.9 32.7L438.5 329l24.6 145.7z"
     />
     </svg>
-    `
+    `;
   }
-  return stars
+  return stars;
 };
-
 
 const topAnimeContainer = document.querySelector(".anime__top__container");
 
@@ -239,25 +245,21 @@ try {
   GetTopAnime();
 }
 
-
-
-const animeReviewContainer = document.querySelector('.anime__display__reviews__container')
-;
-
-
+const animeReviewContainer = document.querySelector(
+  ".anime__display__reviews__container"
+);
 const getDate = (date) => {
-  let currentDate = new Date(date)
-  let newDate = currentDate.toLocaleDateString()
-  return newDate.split('/').join('-');
-}
+  let currentDate = new Date(date);
+  let newDate = currentDate.toLocaleDateString();
+  return newDate.split("/").join("-");
+};
 
 const GetAnimeReviews = async () => {
   animeReviewContainer.innerHTML = "";
   const response = await (
     await (await fetch(`https://api.jikan.moe/v4/reviews/anime`)).json()
   ).data;
-  console.log()
-
+  console.log();
 
   let count = 0;
   while (count < 3) {
@@ -275,15 +277,19 @@ const GetAnimeReviews = async () => {
                       <span>by ${response[count].user.username}</span>
                       <span>${getDate(response[count].date)}</span>
                     </div>
-                    <div class="review__title">${response[count].entry.title}</div>
+                    <div class="review__title">${
+                      response[count].entry.title
+                    }</div>
                     <div class="review__stat">
-                      <div class="stars">${displayStar((response[count].score/ 5 ) *5)}</div>
-                      <span>${(response[count].score)}</span>
+                      <div class="stars">${displayStar(
+                        (response[count].score / 5) * 5
+                      )}</div>
+                      <span>${response[count].score}</span>
                     </div>
-                    <div class="review__text">
+                    <div class="review__text" onclick="goto(event)">
                       ${ShortDescription(response[count].review, 45)}
                     </div>
-                    <div class="review__read " onclick="goto(event)">
+                    <div class="review__read ${response[count].mal_id} " onclick="goto(event)">
                       <span class="temp ${response[count].mal_id}">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -304,7 +310,54 @@ const GetAnimeReviews = async () => {
     count++;
     animeReviewContainer.innerHTML += review;
   }
-}
-
+};
 
 GetAnimeReviews();
+
+const moreAnime = document.querySelector(".anime__display__more");
+
+const getAnime = async () => {
+  moreAnime.innerHTML = "";
+  const response = await (
+    await (await fetch(`https://api.jikan.moe/v4/top/anime`)).json()
+  ).data;
+
+  let count = 0;
+  while (count < 8) {
+    let div = `
+    <div class="anime__more__wrapper">
+    <div class="anime__more__image">
+      <img src=${response[count].images.jpg.image_url} alt="" />
+    </div>
+    <div class="anime__more__content">
+      <div class="anime__more__overlay ${response[count].mal_id}" onclick=goto(event)>
+        <span class='temp ${response[count].mal_id}'>${response[count].title}</span>
+      </div>
+
+      <div class="anime__more__title">${response[count].title}</div>
+      <div class="anime__more__rating">
+        Rating : <span>${response[count].rating}</span>
+      </div>
+      <div class="anime__more__rating">
+        Status : <span>${response[count].status}</span>
+      </div>
+      <div class="anime__more__genres">
+        ${GenerateGenres2(response[count].genres)}
+      </div>
+    </div>
+  </div>
+    `;
+    count++;
+    moreAnime.innerHTML += div;
+  }
+};
+
+
+try {
+  DisplayRecommendation(id);
+} catch {
+  setTimeout(() => {
+    getAnime();
+  }, 500);
+}
+
