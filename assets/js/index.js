@@ -1,3 +1,6 @@
+// CLear Web Storage 
+localStorage.clear();
+
 const generateHeader = () => {
   let headerContents = document.querySelectorAll(".header__content");
 
