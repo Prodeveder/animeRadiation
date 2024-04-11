@@ -149,7 +149,7 @@ const generateGenres = async () => {
 generateGenres();
 
 function goto(event) {
-  console.log('Working....')
+  console.log("Working....");
   let id = event.explicitOriginalTarget.classList[1];
   localStorage.clear();
   localStorage.setItem("anime__id", id);
@@ -259,7 +259,6 @@ const GetAnimeReviews = async () => {
   const response = await (
     await (await fetch(`https://api.jikan.moe/v4/reviews/anime`)).json()
   ).data;
-  console.log();
 
   let count = 0;
   while (count < 3) {
@@ -268,34 +267,36 @@ const GetAnimeReviews = async () => {
                 <div class="review">
                   <div class="review__image">
                     <img
-                      src=${response[count].entry.images.jpg.image_url}
+                      src=${response[count + 2].entry.images.jpg.image_url}
                       alt="Review Anime Image"
                     />
                   </div>
                   <div class="review__content">
                     <div class="review__user">
-                      <span>by ${response[count].user.username}</span>
-                      <span>${getDate(response[count].date)}</span>
+                      <span>by ${response[count + 2].user.username}</span>
+                      <span>${getDate(response[count + 2].date)}</span>
                     </div>
                     <div class="review__title">${
-                      response[count].entry.title
+                      response[count + 2].entry.title
                     }</div>
                     <div class="review__stat">
                       <div class="stars">${displayStar(
-                        (response[count].score / 5) * 5
+                        (response[count + 2].score / 5) * 5
                       )}</div>
-                      <span>${response[count].score}</span>
+                      <span>${response[count + 2].score}</span>
                     </div>
                     <div class="review__text" onclick="goto(event)">
-                      ${ShortDescription(response[count].review, 45)}
+                      ${ShortDescription(response[count + 2].review, 45)}
                     </div>
-                    <div class="review__read ${response[count].mal_id} " onclick="goto(event)">
-                      <span class="temp ${response[count].mal_id}">
+                    <div class="review__read ${
+                      response[count + 2].mal_id
+                    } " onclick="goto(event)">
+                      <span class="temp ${response[count + 2].mal_id}">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 576 512"
                         >
-                          <path class="temp ${response[count].mal_id}"
+                          <path class="temp ${response[count + 2].mal_id}"
                             d="M528.3 46.5H388.5c-48.1 0-89.9 33.3-100.4 80.3-10.6-47-52.3-80.3-100.4-80.3H48c-26.5 0-48 21.5-48 48v245.8c0 26.5 21.5 48 48 48h89.7c102.2 0 132.7 24.4 147.3 75 .7 2.8 5.2 2.8 6 0 14.7-50.6 45.2-75 147.3-75H528c26.5 0 48-21.5 48-48V94.6c0-26.4-21.3-47.9-47.7-48.1zM242 311.9c0 1.9-1.5 3.5-3.5 3.5H78.2c-1.9 0-3.5-1.5-3.5-3.5V289c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5v22.9zm0-60.9c0 1.9-1.5 3.5-3.5 3.5H78.2c-1.9 0-3.5-1.5-3.5-3.5v-22.9c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5V251zm0-60.9c0 1.9-1.5 3.5-3.5 3.5H78.2c-1.9 0-3.5-1.5-3.5-3.5v-22.9c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5v22.9zm259.3 121.7c0 1.9-1.5 3.5-3.5 3.5H337.5c-1.9 0-3.5-1.5-3.5-3.5v-22.9c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5v22.9zm0-60.9c0 1.9-1.5 3.5-3.5 3.5H337.5c-1.9 0-3.5-1.5-3.5-3.5V228c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5v22.9zm0-60.9c0 1.9-1.5 3.5-3.5 3.5H337.5c-1.9 0-3.5-1.5-3.5-3.5v-22.8c0-1.9 1.5-3.5 3.5-3.5h160.4c1.9 0 3.5 1.5 3.5 3.5V190z"
                           />
                         </svg>
@@ -314,10 +315,10 @@ const GetAnimeReviews = async () => {
 
 GetAnimeReviews();
 
-const moreAnime = document.querySelector(".anime__display__more");
+const moreAnime = document.querySelectorAll(".anime__display__more");
 
 const getAnime = async () => {
-  moreAnime.innerHTML = "";
+  moreAnime[0].innerHTML = "";
   const response = await (
     await (await fetch(`https://api.jikan.moe/v4/top/anime`)).json()
   ).data;
@@ -330,8 +331,12 @@ const getAnime = async () => {
       <img src=${response[count].images.jpg.image_url} alt="" />
     </div>
     <div class="anime__more__content">
-      <div class="anime__more__overlay ${response[count].mal_id}" onclick=goto(event)>
-        <span class='temp ${response[count].mal_id}'>${response[count].title}</span>
+      <div class="anime__more__overlay ${
+        response[count].mal_id
+      }" onclick=goto(event)>
+        <span class='temp ${response[count].mal_id}'>${
+      response[count].title
+    }</span>
       </div>
 
       <div class="anime__more__title">${response[count].title}</div>
@@ -348,16 +353,43 @@ const getAnime = async () => {
   </div>
     `;
     count++;
-    moreAnime.innerHTML += div;
+    moreAnime[0].innerHTML += div;
   }
 };
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    try {
+      getAnime();
+    } catch {
+      setTimeout(() => {
+        getAnime();
+      }, 500);
+    }
+    if (entry.isIntersecting) observer.unobserve(entry.target);
+  }),
+    {
+      threshold: 0.2,
+    };
+});
 
-try {
-  DisplayRecommendation(id);
-} catch {
-  setTimeout(() => {
-    getAnime();
-  }, 500);
-}
+moreAnime.forEach((anime) => {
+  observer.observe(anime);
+});
 
+const alphabetContainer = document.querySelector('.alphabet__wrapper')
+
+const getAlphabets = async () => {
+  alphabetContainer.innerHTML = '';
+  moreAnime[0].innerHTML = "";
+  const response = await (await fetch(`assets/js/alphabet.json`)).json();
+
+  let count = 1;
+  while (count < 27) {
+    alphabetContainer.innerHTML += `<div class="alphabet">${response[count]}</div>`;
+
+    count++
+  }
+};
+
+getAlphabets();
