@@ -1284,11 +1284,13 @@ section {
 /* Footer  */
 footer {
   width: 100%;
-  height: 180px;
-  padding: 1rem 0;
-  background: var(--accent);
+  height: 200px;
+  /* padding: 1rem 0; */
+  /* background: var(--accent); */
   position: relative;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   border-top: 1rem solid var(--accent);
 }
 
