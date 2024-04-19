@@ -1,0 +1,359 @@
+:root {
+  --accent: #132543;
+  --accent-: #1c2e4a;
+  --primary: #ffffff;
+  --secondary: #f4f7fc; /* #fcfdfc/ */
+
+  --mainWidth: 90%;
+  --MainRound: 0.1rem;
+}
+
+@font-face {
+  font-family: font;
+  src: url(fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+body {
+  font-family: font;
+}
+
+/* slider section  */
+
+.slider {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.slider .list .item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+
+.slider .list .item .content__overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.slider .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider .list .item .content {
+  position: absolute;
+  top: 10%;
+  width: 1140px;
+  max-width: 80%;
+  left: 45%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 5px 10px #0004;
+}
+
+/* Thumbnail Section  */
+.thumbnail {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnail .item {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* nextPrevArrows Section  */
+.nextPrevArrows {
+  position: absolute;
+  top: 80%;
+  right: 52%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.nextPrevArrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.nextPrevArrows button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Animation Part */
+.slider .list .item:nth-child(1) {
+  z-index: 1;
+}
+
+/* Animation for next button click */
+.slider.next .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 30px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+
+@keyframes showImage {
+  to {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.slider.next .thumbnail .item:nth-last-child(1) {
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.slider.prev .list .item img {
+  z-index: 100;
+}
+
+@keyframes showThumbnail {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.slider.next .thumbnail {
+  animation: effectNext 0.5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+  from {
+    transform: translateX(150px);
+  }
+}
+
+/* Animation for prev button click */
+.slider.prev .list .item:nth-child(2) {
+  z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img {
+  animation: outFrame 0.5s linear 1 forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+@keyframes outFrame {
+  to {
+    width: 150px;
+    height: 220px;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 20px;
+  }
+}
+
+.slider.prev .thumbnail .item:nth-child(1) {
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.slider.next .nextPrevArrows button,
+.slider.prev .nextPrevArrows button {
+  pointer-events: none;
+}
+
+/* Content  */
+.content .stats {
+  color: var(--primary);
+  font-size: 14px;
+}
+.content .title {
+  color: var(--secondary);
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 4rem;
+  letter-spacing: -3.5px;
+  width: 70%;
+  padding-bottom: 0.5rem;
+}
+
+.anime__genres {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem 0 0.3rem 0;
+}
+
+.anime__genres .genre {
+  font-size: 14px;
+  font-weight: bold;
+  background: var(--accent);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--MainRound);
+  cursor: pointer;
+  transition: var(--MainTransition);
+}
+
+.anime__genres .genre:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+.content .stars {
+  padding: 0 0 0.2rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.content .star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .score {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.content .description {
+  width: 75%;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.content .button .readMore {
+  margin-top: 0.5rem;
+  width: 100px;
+  padding: 0.4rem 1rem;
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: 0.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.content .button .readMore:hover {
+  background: var(--primary);
+  color: var(--accent);
+}
+
+.slider .list .item .content:nth-child(1),
+.content .stats:nth-child(1),
+.content .title:nth-child(1),
+.content .stars:nth-child(1),
+.content .description:nth-child(1),
+.content .button:nth-child(1) {
+  opacity: 0;
+  animation: showContent 1s ease-in-out forwards;
+  top: 0%;
+}
+
+.slider .list .item .content:nth-child(2),
+.content .stats:nth-child(2),
+.content .title:nth-child(2),
+.content .stars:nth-child(2),
+.content .description:nth-child(2),
+.content .button:nth-child(2) {
+  opacity: 0;
+  animation: showContent 1s ease-in-out forwards;
+  top: 0%;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    top: 10%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .thumbnail {
+    bottom: 1rem;
+  }
+  .thumbnail .item {
+    height: 180px;
+    width: 130px;
+  }
+}
+
+@media (max-width: 850px) {
+  .thumbnail .item {
+    height: 150px;
+    width: 100px;
+  }
+  .slider .list .item .content {
+    top: 5%;
+  }
+  .content .title {
+    width: 90%;
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+  .content .description {
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .thumbnail .item {
+    height: 150px;
+    width: 100px;
+  }
+  .slider .list .item .content {
+    top: 5%;
+  }
+  .content .title {
+    width: 85%;
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+  .content .description {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .content .title {
+    width: 85%;
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+}
