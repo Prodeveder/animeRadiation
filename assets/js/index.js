@@ -1,53 +1,58 @@
 // External Files
 // destinationFile.js
-import { resultDiv, headerDiv, TopDiv, reviewDiv } from "./components.js";
+import {
+  resultDiv,
+  headerDiv,
+  TopDiv,
+  reviewDiv,
+  TopAnimeDiv,
+} from "./components.js";
 import { SearchAnime, HeaderAnime, ReviewAnime } from "./request.js";
 
+// The Header
+let nextBtn = document.querySelector(".next");
+let prevBtn = document.querySelector(".prev");
 
-// The Header 
-let nextBtn = document.querySelector('.next')
-let prevBtn = document.querySelector('.prev')
+let slider = document.querySelector(".slider");
+let sliderList = slider.querySelector(".slider .list");
+let thumbnail = document.querySelector(".slider .thumbnail");
+let thumbnailItems = thumbnail.querySelectorAll(".item");
 
-let slider = document.querySelector('.slider')
-let sliderList = slider.querySelector('.slider .list')
-let thumbnail = document.querySelector('.slider .thumbnail')
-let thumbnailItems = thumbnail.querySelectorAll('.item')
+thumbnail.appendChild(thumbnailItems[0]);
 
-thumbnail.appendChild(thumbnailItems[0])
+nextBtn.onclick = function () {
+  moveSlider("next");
+};
 
-
-nextBtn.onclick = function() {
-    moveSlider('next')
-}
-
-
-prevBtn.onclick = function() {
-    moveSlider('prev')
-}
-
+prevBtn.onclick = function () {
+  moveSlider("prev");
+};
 
 function moveSlider(direction) {
-    let sliderItems = sliderList.querySelectorAll('.item')
-    let thumbnailItems = document.querySelectorAll('.thumbnail .item')
-    
-    if(direction === 'next'){
-        sliderList.appendChild(sliderItems[0])
-        thumbnail.appendChild(thumbnailItems[0])
-        slider.classList.add('next')
-    } else {
-        sliderList.prepend(sliderItems[sliderItems.length - 1])
-        thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1])
-        slider.classList.add('prev')
-    }
+  let sliderItems = sliderList.querySelectorAll(".item");
+  let thumbnailItems = document.querySelectorAll(".thumbnail .item");
 
+  if (direction === "next") {
+    sliderList.appendChild(sliderItems[0]);
+    thumbnail.appendChild(thumbnailItems[0]);
+    slider.classList.add("next");
+  } else {
+    sliderList.prepend(sliderItems[sliderItems.length - 1]);
+    thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1]);
+    slider.classList.add("prev");
+  }
 
-    slider.addEventListener('animationend', function() {
-        if(direction === 'next'){
-            slider.classList.remove('next')
-        } else {
-            slider.classList.remove('prev')
-        }
-    }, {once: true})
+  slider.addEventListener(
+    "animationend",
+    function () {
+      if (direction === "next") {
+        slider.classList.remove("next");
+      } else {
+        slider.classList.remove("prev");
+      }
+    },
+    { once: true }
+  );
 }
 
 // Local Storage Data Handling
@@ -160,14 +165,44 @@ window.onclick = function (event) {
   }
 };
 
-
 const generateHeader = async () => {
   let data = await HeaderAnime();
-  headerDiv(data)
+  TopAnimeDiv(data);
+  headerDiv(data);
   TopDiv(data);
-}
+};
 
 generateHeader();
-reviewDiv(await ReviewAnime())
+reviewDiv(await ReviewAnime());
 
-console.log()
+const alphabetContainer = document.querySelector(".alphabet__wrapper");
+
+const getAlphabets = async () => {
+  alphabetContainer.innerHTML = "";
+  // moreAnime[0].innerHTML = "";
+  const response = await (await fetch(`assets/js/alphabet.json`)).json();
+
+  let count = 1;
+  while (count < 27) {
+    alphabetContainer.innerHTML += `<div class="alphabet">${response[count]}</div>`;
+
+    count++;
+  }
+};
+
+getAlphabets();
+
+let div = document.querySelector(".anime__genres__container");
+
+const getGenres = async () => {
+  div.innerHTML = "";
+  const response = await (await fetch(`assets/js/genres.json`)).json();
+
+  let count = 1;
+  while (count < 77) {
+    div.innerHTML += `<div class="genre__item">${response.data[count].name}</div>`;
+    count++;
+  }
+};
+
+getGenres();

@@ -30,4 +30,5 @@ const ReviewAnime = async () => {
 
 
 
+
 export { SearchAnime, HeaderAnime, ReviewAnime };

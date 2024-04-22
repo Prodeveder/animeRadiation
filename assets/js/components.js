@@ -107,7 +107,7 @@ const disTitle = document.querySelectorAll(".display__content span");
 
 const TopDiv = (data) => {
   let count = 0;
-  while (count < 5) {
+  while (count < 13) {
     let index = Math.floor(Math.random() * 25);
     disImage[count].src = data[index].images.jpg.large_image_url;
     disTitle[count].innerHTML = data[index].title_english;
@@ -145,7 +145,6 @@ const reviewScore = document.querySelectorAll(".review-score");
 const reviewBy = document.querySelectorAll(".by");
 const reviewTime = document.querySelectorAll(".time");
 
-
 // reviewAnimeTags.forEach( (element) => {
 //   // element.innerHTML = '';
 
@@ -158,10 +157,8 @@ const reviewDiv = (data) => {
     reviewTitles[count].innerHTML = data[count].entry.title;
     reviewBy[count].innerHTML = data[count].user.username;
     reviewTags[count].innerHTML = data[count].tags;
-    reviewScore[count].innerHTML = (data[count].score / 10 * 5);
+    reviewScore[count].innerHTML = (data[count].score / 10) * 5;
     reviewStar[count].innerHTML = displayStar(data[count].score);
-
-
 
     reviewTime[count].innerHTML = getYear(data[count].date);
     reviewImages[count].src = data[count].entry.images.jpg.large_image_url;
@@ -174,4 +171,29 @@ const reviewDiv = (data) => {
   }
 };
 
-export { resultDiv, headerDiv, TopDiv, reviewDiv };
+const AnimeTopTitle = document.querySelectorAll(".anime__top__title");
+const AnimeTopTitleOverlay = document.querySelectorAll(".anime__top__overlay span");
+const AnimeTopStatus = document.querySelectorAll(".anime__top__rating .status");
+const AnimeTopScore = document.querySelectorAll(".anime__top__rating .score");
+
+const AnimeTopImage = document.querySelectorAll(".anime__top__image img");
+
+
+const TopAnimeDiv = (data) => {
+  let count = 0;
+  while (count < 3) {
+    // let index = Math.floor(Math.random() * 25);
+    AnimeTopTitle[count].innerHTML = data[count].title;
+    AnimeTopStatus[count].innerHTML = data[count].status;
+    AnimeTopScore[count].innerHTML = data[count].score;
+
+    AnimeTopImage[count].src = data[count].images.jpg.large_image_url;
+
+
+    AnimeTopTitleOverlay[count].innerHTML = data[count].title;
+
+    count++;
+  }
+};
+
+export { resultDiv, headerDiv, TopDiv, reviewDiv, TopAnimeDiv };
