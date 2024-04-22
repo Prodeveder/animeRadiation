@@ -1,7 +1,7 @@
 // External Files
 // destinationFile.js
-import { resultDiv, headerDiv, TopDiv } from "./components.js";
-import { SearchAnime, HeaderAnime } from "./request.js";
+import { resultDiv, headerDiv, TopDiv, reviewDiv } from "./components.js";
+import { SearchAnime, HeaderAnime, ReviewAnime } from "./request.js";
 
 
 // The Header 
@@ -168,6 +168,6 @@ const generateHeader = async () => {
 }
 
 generateHeader();
-
+reviewDiv(await ReviewAnime())
 
 console.log()

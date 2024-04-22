@@ -21,5 +21,13 @@ const RecommendationAnime = async () => {
 }
 
 
+const ReviewAnime = async () => {
+    let url = `https://api.jikan.moe/v4/reviews/anime`;
+    const response = await (await(await( fetch(url))).json()).data;
 
-export { SearchAnime, HeaderAnime };
+    return response
+}
+
+
+
+export { SearchAnime, HeaderAnime, ReviewAnime };
