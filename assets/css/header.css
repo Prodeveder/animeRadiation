@@ -218,6 +218,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   background: var(--accent);
+  color: var(--primary);
   padding: 0.2rem 0.4rem;
   border-radius: var(--MainRound);
   cursor: pointer;

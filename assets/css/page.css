@@ -1,0 +1,347 @@
+:root {
+  --accent: #132543;
+  --accent-: #1c2e4a;
+  --accent--: #e7eef8;
+  --primary: #ffffff;
+  --secondary: #f4f7fc; /* #fcfdfc/ */
+
+  --mainWidth: 90%;
+  --MainRound: 0.1rem;
+}
+
+@font-face {
+  font-family: font;
+  src: url(fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+body {
+  font-family: font;
+  background: var(--secondary);
+}
+
+/* Anime Display Wrapper  */
+.anime__display__wrapper {
+  position: relative;
+  height: auto;
+}
+
+/* Anime Main Image  */
+.anime__main__image {
+  width: 100%;
+  height: 400px;
+  background: rgb(0 0 0 /0.2);
+  position: relative;
+}
+
+/* Anime Main Img  */
+.main__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image Overlay  */
+.image__overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.8), #f4f7fc 100%);
+}
+
+/* Anime Display Container Wrapper */
+.anime__display__container__wrapper {
+  width: 100%;
+  height: auto;
+  /* background: rgb(0 0 0 /.2); */
+  position: relative;
+  top: -250px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Anime Display Container Section  */
+.anime__display__container__section {
+  width: var(--mainWidth);
+  height: auto;
+  padding: 1rem 0;
+
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 1rem;
+}
+
+/* Anime Display Container  */
+.anime__display__container {
+  width: 100%;
+  height: auto;
+}
+
+/* Anime Display Main  */
+.anime__display__main {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Anime Display Image  */
+.anime__display__image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0.2rem;
+  /* overflow: hidden; */
+  margin-bottom: 1rem;
+}
+
+/* Anime Display Image Content  */
+.display__image__content {
+  width: 104%;
+  height: auto;
+  padding: 0.3rem 0 0 0;
+}
+
+.content__text {
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  gap: 0.5rem;
+  color: var(--accent);
+}
+.content__text span {
+  font-weight: 500;
+}
+
+/* Anime Img  */
+.anime__img {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  filter: brightness(0.9) blur(5px);
+  border: 5px solid var(--accent);
+  border-radius: 0.2rem;
+
+  opacity: 0;
+  animation: imageShow 2s ease-in-out forwards;
+}
+
+.anime__img:hover {
+  filter: brightness(1.2);
+}
+
+@keyframes imageShow {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* Anime Display Content  */
+.anime__display__content {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Display Content Span  */
+.display__content__span {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--primary);
+  text-shadow: 2px 2px 8px #000000;
+}
+
+/* Display Content title  */
+.display__content__title {
+  font-size: 3.5rem;
+  line-height: 3rem;
+  letter-spacing: -3.5px;
+  font-weight: bold;
+
+  color: var(--primary);
+  text-shadow: 2px 2px 8px #000000;
+}
+
+.anime__display__content .stars {
+  padding: 1rem 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.anime__display__content .stars .score {
+  font-size: 1.5rem;
+}
+
+/* Display Text  */
+.display__text {
+  color: var(--accent);
+  line-height: 15px;
+  padding: 0.4rem 0 0.6rem 0;
+  width: 90%;
+}
+
+/* Display Text Background  */
+.display__text__background {
+  background: var(--accent--);
+  padding: 0.7rem 0;
+  border-radius: 0.2rem;
+}
+
+.display__text__background span {
+  padding-left: 10px;
+  font-weight: bold;
+  color: var(--accent);
+}
+.background {
+  font-size: 14px;
+  line-height: 15px;
+  opacity: 0.6;
+  width: 95%;
+  color: var(--accent);
+  padding: 0.2rem 0 0.5rem 10px;
+}
+
+.more__anime__images {
+  width: 100%;
+  height: 250px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 1.5rem;
+}
+
+.more__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  filter: brightness(0.6) blur(1px);
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  animation: showImg 2s ease-in-out forwards;
+}
+
+.more__img:hover {
+  filter: brightness(1) blur(0);
+
+}
+
+.more__img:nth-child(2) {
+  animation: showImg 2.5s ease-in-out forwards;
+}
+
+.more__img:nth-child(3) {
+  animation: showImg 3s ease-in-out forwards;
+}
+
+@keyframes showImg {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Anime Characters Wrapper  */
+.anime__characters__wrapper {
+    width: 100%;
+    height: auto; 
+}
+
+.anime__characters__wrapper span {
+    color: var(--accent);
+    font-size: 1.5rem;
+    letter-spacing: -2.5px;
+    font-weight: bold;
+}
+
+/* Anime Characters Container  */
+.anime__characters__container {
+    width: 100%;
+    height: auto;
+    margin-top: .5rem;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: .5rem;
+    column-gap: .3rem;
+}
+
+/* Anime Character  */
+.anime__character {
+    width: 100%;
+    height: auto;
+    padding: .5rem 0;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: .2rem;
+    background: var(--accent);
+    border-radius: .1rem;
+    transition: all .1s ease-in-out;
+    cursor: pointer;
+}
+
+.anime__character:hover {
+    background: var(--accent-);
+    transform: scale(1.1);
+}
+
+.anime__ch__item {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.anime__ch__item img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: .1rem;
+}
+
+.anime__ch__item_c {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.ch__name {
+    font-weight: bold;
+    letter-spacing: -.5px;
+    color: var(--primary);
+    font-size: 18px;
+    line-height: 15px;
+}
+
+.ch__actor {
+    font-weight: 100;
+    font-size: 14px;
+    letter-spacing: -.5px;
+    color: var(--accent--);
+}
+.ch__actor span {
+    font-size: 14px;
+    letter-spacing: -.3 px;
+
+    font-weight: bold;
+    color: var(--primary);
+}
+
