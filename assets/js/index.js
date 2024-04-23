@@ -80,7 +80,7 @@ RedirectAnime.forEach((redirect) => [
   redirect.addEventListener("click", () => {
     // let id = redirect.dataset.anime_id;
     // AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
+    window.location.href = "../page.html";
   }),
 ]);
 
@@ -88,7 +88,7 @@ RedirectAnimeContent.forEach((redirect) => [
   redirect.addEventListener("click", () => {
     let id = redirect.dataset.anime_id;
     AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
+    window.location.href = "../page.html";
   }),
 ]);
 // Search Functions
@@ -164,7 +164,7 @@ window.onclick = function (event) {
     // searchResults.style.display = "none";
     let id = event.target.dataset.anime_id;
     AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
+    window.location.href = "../page.html";
 
     search.value = "";
   } else if (event.target.classList[0] != "overlay__result") {
@@ -179,7 +179,7 @@ readMoreBtn.forEach((element) => {
   element.addEventListener("click", () => {
     let id = element.dataset.anime_id;
     AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
+    window.location.href = "../page.html";
   });
 });
 
