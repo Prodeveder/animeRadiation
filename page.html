@@ -1,11 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+
+    <script src="assets/js/page.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/page.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar__wrapper">
+        <div class="navbar__item">
+          <div class="navbar__brand">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              fill="#de2b3f"
+            >
+              <path
+                d="M216 186.7c-23.9 13.8-40 39.7-40 69.3L32 256C14.3 256-.2 241.6 2 224.1C10.7 154 47.8 92.7 101.3 52c14.1-10.7 33.8-5.3 42.7 10l72 124.7zM256 336c14.6 0 28.2-3.9 40-10.7l72 124.8c8.8 15.3 3.7 35.1-12.6 41.9c-30.6 12.9-64.2 20-99.4 20s-68.9-7.1-99.4-20c-16.3-6.9-21.4-26.6-12.6-41.9l72-124.8c11.8 6.8 25.4 10.7 40 10.7zm224-80l-144 0c0-29.6-16.1-55.5-40-69.3L368 62c8.8-15.3 28.6-20.7 42.7-10c53.6 40.7 90.6 102 99.4 172.1c2.2 17.5-12.4 31.9-30 31.9zM256 208a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+              />
+            </svg>
+
+            <span>AnimeRadiation</span>
+          </div>
+        </div>
+        <div class="search__wrapper">
+          <input type="text" class="search" placeholder="Search something..." />
+          <div class="search__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+          </div>
+          <div class="search__results">
+            <div class="result" id="RedirectAnime" data-Anime_ID="3434">
+              <div class="overlay__result"></div>
+              <div class="result__image">
+                <img
+                  src="assets/images/Header/1.jpg"
+                  alt=""
+                  class="result__img"
+                />
+              </div>
+              <div class="results__content">
+                <div class="result__title">Demon Slayer : Last Calling</div>
+                <div class="result__stars">
+                  <div class="stars">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="score">4.0</div>
+                </div>
+              </div>
+            </div>
+            <div class="result" id="RedirectAnime" data-Anime_ID="3434">
+              <div class="result__image">
+                <img
+                  src="assets/images/Header/1.jpg"
+                  alt=""
+                  class="result__img"
+                />
+              </div>
+              <div class="results__content">
+                <div class="result__title">Demon Slayer : Last Calling</div>
+                <div class="result__stars">
+                  <div class="stars">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="score">4.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__container">
+      <ul class="navbar">
+        <li>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path
+                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+              />
+            </svg>
+            Home</a
+          >
+        </li>
+        <li>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M384 96V224H256V96H384zm0 192V416H256V288H384zM192 224H64V96H192V224zM64 288H192V416H64V288zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"
+              />
+            </svg>
+            All</a
+          >
+        </li>
+        <li>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+            Search</a
+          >
+        </li>
+        <li>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+            Genres</a
+          >
+        </li>
+        <li>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                d="M403.8 34.4c12-5 25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160H352c-10.1 0-19.6 4.7-25.6 12.8L284 229.3 244 176l31.2-41.6C293.3 110.2 321.8 96 352 96h32V64c0-12.9 7.8-24.6 19.8-29.6zM164 282.7L204 336l-31.2 41.6C154.7 401.8 126.2 416 96 416H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H96c10.1 0 19.6-4.7 25.6-12.8L164 282.7zm274.6 188c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V416H352c-30.2 0-58.7-14.2-76.8-38.4L121.6 172.8c-6-8.1-15.5-12.8-25.6-12.8H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H96c30.2 0 58.7 14.2 76.8 38.4L326.4 339.2c6 8.1 15.5 12.8 25.6 12.8h32V320c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64z"
+              />
+            </svg>
+            Random</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="anime__display__wrapper">
+      <div class="anime__main__image">
+        <img src="assets/images/Header/2.jpg" alt="" class="main__img" />
+        <div class="image__overlay"></div>
+      </div>
+      <div class="anime__display__container__wrapper">
+        <div class="anime__display__container__section">
+          <div class="anime__display__container">
+            <div class="anime__display__main">
+              <div class="anime__display__image">
+                <img
+                  src="assets/images/Header/2.jpg"
+                  alt=""
+                  class="anime__img"
+                />
+
+                <div class="display__image__content">
+                  <div class="content__text">
+                    Status<span class="A_status">: Currently Airing</span>
+                  </div>
+                  <div class="content__text">
+                    Year<span class="A_status">: 2023</span>
+                  </div>
+                  <div class="content__text">
+                    Rating
+                    <span class="A_status">: PG-13 - Teens 13 or older</span>
+                  </div>
+                  <div class="content__text">
+                    Season <span class="A_status">: Spring</span>
+                  </div>
+                </div>
+              </div>
+              <div class="anime__display__content">
+                <div class="display__content__span">Home | TV</div>
+                <div class="display__content__title">
+                  Demon SLayer: The Last awakening
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i
+                      class="fa-solid fa-star fa-lg"
+                      style="color: #132543"
+                    ></i>
+                    <i
+                      class="fa-solid fa-star fa-lg"
+                      style="color: #132543"
+                    ></i>
+                    <i
+                      class="fa-solid fa-star fa-lg"
+                      style="color: #132543"
+                    ></i>
+                    <i
+                      class="fa-solid fa-star fa-lg"
+                      style="color: #132543"
+                    ></i>
+                    <i
+                      class="fa-solid fa-star fa-lg"
+                      style="color: #f0e9ec"
+                    ></i>
+                  </div>
+                  <div class="score">4.0</div>
+                </div>
+                <div class="anime__genres">
+                  <div class="genre" data-GenreID="12">Drama</div>
+                  <div class="genre" data-GenreID="42">Action</div>
+                  <div class="genre" data-GenreID="205">Fantasy</div>
+                </div>
+                <div class="display__text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Cupiditate sapiente odio aut exercitationem non sequi sit
+                  aperiam, praesentium dignissimos a incidunt. Qui eaque, quo
+                  doloremque quod velit itaque ducimus architecto. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Error, aliquam
+                  quae provident numquam aliquid fugit ullam assumenda
+                  laboriosam? Enim voluptates veritatis repudiandae maxime illo
+                  sapiente cupiditate eveniet incidunt dolorem non?
+                </div>
+                <div class="display__text__background">
+                  <span>Background</span>
+                  <div class="background">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Optio alias a nihil, ad placeat fugiat quod dolore debitis
+                    voluptas unde nobis eos cumque vitae minus, excepturi
+                    maiores porro illo officiis.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="more__anime__images">
+              <img src="assets/images/Header/1.jpg" alt="" class="more__img" />
+              <img src="assets/images/Header/3.jpg" alt="" class="more__img" />
+              <img src="assets/images/Header/4.jpg" alt="" class="more__img" />
+            </div>
+
+            <div class="anime__characters__wrapper">
+              <span>Main Characters & Voice Actors</span>
+              <div class="anime__characters__container">
+                <div class="anime__character">
+                  <div class="anime__ch__item">
+                    <img src="assets/images/Header/1.jpg" alt="" />
+                  </div>
+                  <div class="anime__ch__item_c">
+                    <div class="ch__name">Naruto Sakue SDS</div>
+                    <div class="ch__actor">
+                      <span>Actor </span>: Naruto Sakue SDS
+                    </div>
+                  </div>
+                </div>
+
+                <div class="anime__character">
+                    <div class="anime__ch__item">
+                      <img src="assets/images/Header/1.jpg" alt="" />
+                    </div>
+                    <div class="anime__ch__item_c">
+                      <div class="ch__name">Naruto Sakue SDS</div>
+                      <div class="ch__actor">
+                        <span>Actor </span>: Naruto Sakue SDS
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="anime__character">
+                    <div class="anime__ch__item">
+                      <img src="assets/images/Header/1.jpg" alt="" />
+                    </div>
+                    <div class="anime__ch__item_c">
+                      <div class="ch__name">Naruto Sakue SDS</div>
+                      <div class="ch__actor">
+                        <span>Actor </span>: Naruto Sakue SDS
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="anime__character">
+                    <div class="anime__ch__item">
+                      <img src="assets/images/Header/1.jpg" alt="" />
+                    </div>
+                    <div class="anime__ch__item_c">
+                      <div class="ch__name">Naruto Sakue SDS</div>
+                      <div class="ch__actor">
+                        <span>Actor </span>: Naruto Sakue SDS
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="anime__character">
+                    <div class="anime__ch__item">
+                      <img src="assets/images/Header/1.jpg" alt="" />
+                    </div>
+                    <div class="anime__ch__item_c">
+                      <div class="ch__name">Naruto Sakue SDS</div>
+                      <div class="ch__actor">
+                        <span>Actor </span>: Naruto Sakue SDS
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="id"></div> -->
+  </body>
 </html>
