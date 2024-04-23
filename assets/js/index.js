@@ -73,13 +73,13 @@ const GetLocalStorageItem = (data) => {
   return result;
 };
 
-const RedirectAnime = document.querySelectorAll("#RedirectAnime");
+const RedirectAnime = document.querySelectorAll("display__content span");
 const RedirectAnimeContent = document.querySelectorAll(".results__content");
 
 RedirectAnime.forEach((redirect) => [
   redirect.addEventListener("click", () => {
-    let id = redirect.dataset.anime_id;
-    AddLocalStorageItem("anime_id", id);
+    // let id = redirect.dataset.anime_id;
+    // AddLocalStorageItem("anime_id", id);
     window.location.href = "/page.html";
   }),
 ]);
@@ -115,7 +115,8 @@ const generateSearch = () => {
         searchResults.innerHTML += resultDiv(
           result.title,
           checkNullYear(result.year),
-          result.images.jpg.image_url
+          result.images.jpg.image_url,
+          result.mal_id
         );
       });
     };
@@ -155,15 +156,32 @@ Overlays.forEach((element) => {
 });
 
 window.onclick = function (event) {
+  // console.log(event.target.classList);
+
   if (event.target.classList[0] == "overlay__result") {
     console.log("Working");
-    searchResults.style.display = "none";
+
+    // searchResults.style.display = "none";
+    let id = event.target.dataset.anime_id;
+    AddLocalStorageItem("anime_id", id);
+    window.location.href = "/page.html";
+
     search.value = "";
   } else if (event.target.classList[0] != "overlay__result") {
     searchResults.style.display = "none";
     search.value = "";
   }
 };
+
+const readMoreBtn = document.querySelectorAll(".readMore");
+
+readMoreBtn.forEach((element) => {
+  element.addEventListener("click", () => {
+    let id = element.dataset.anime_id;
+    AddLocalStorageItem("anime_id", id);
+    window.location.href = "/page.html";
+  });
+});
 
 const generateHeader = async () => {
   let data = await HeaderAnime();

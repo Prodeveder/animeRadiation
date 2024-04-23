@@ -1,10 +1,14 @@
 // sourceFile.js
 const colorCode = "Hello WOrld";
 
-const resultDiv = (title, score, image) => {
+const AddLocalStorageItem = (itemName, data) => {
+  localStorage.setItem(itemName, data);
+};
+
+const resultDiv = (title, score, image, id) => {
   let div = `
         <div class="result" id="RedirectAnime" data-Anime_ID="3434">
-        <div class="overlay__result"></div>
+        <div class="overlay__result" data-Anime_ID="${id}"></div>
 
             <div class="result__image">
                 <img
@@ -35,6 +39,7 @@ const stars = document.querySelectorAll(".star");
 const scores = document.querySelectorAll(".score");
 const stats = document.querySelectorAll(".stats");
 const animeDescription = document.querySelectorAll(".description");
+const readMoreBtn = document.querySelectorAll(".readMore");
 
 const GenerateGenres = (genres) => {
   let div = ``;
@@ -81,6 +86,7 @@ const displayStar = (score) => {
 const headerDiv = (data) => {
   let count = 0;
   while (count < 5) {
+    readMoreBtn[count].dataset.anime_id = data[count].mal_id;
     itemImages[count].src = data[count].images.jpg.large_image_url;
     thumbImages[count].src = data[count].images.jpg.large_image_url;
     animeDescription[count].innerHTML = ShortDescription(
@@ -104,6 +110,23 @@ const disStatus = document.querySelectorAll(".dis_status");
 const disScore = document.querySelectorAll(".dis_tv");
 const disImage = document.querySelectorAll(".display__img");
 const disTitle = document.querySelectorAll(".display__content span");
+const disTitleMain = document.querySelectorAll(".display__content");
+
+
+disTitle.forEach((element) => {
+  element.addEventListener("click", () => {
+    let id = element.dataset.anime_id;
+    AddLocalStorageItem("anime_id", id);
+    window.location.href = "/page.html";
+  });
+});
+disTitleMain.forEach((element) => {
+  element.addEventListener("click", () => {
+    let id = element.dataset.anime_id;
+    AddLocalStorageItem("anime_id", id);
+    window.location.href = "/page.html";
+  });
+});
 
 const TopDiv = (data) => {
   let count = 0;
@@ -111,6 +134,8 @@ const TopDiv = (data) => {
     let index = Math.floor(Math.random() * 25);
     disImage[count].src = data[index].images.jpg.large_image_url;
     disTitle[count].innerHTML = data[index].title_english;
+    disTitle[count].dataset.anime_id = data[index].mal_id;
+    disTitleMain[count].dataset.anime_id = data[index].mal_id;
     disScore[count].innerHTML = displayStar(data[index].score);
     disTv[count].innerHTML = data[index].type;
     disStatus[count].innerHTML = data[index].status;
@@ -172,12 +197,13 @@ const reviewDiv = (data) => {
 };
 
 const AnimeTopTitle = document.querySelectorAll(".anime__top__title");
-const AnimeTopTitleOverlay = document.querySelectorAll(".anime__top__overlay span");
+const AnimeTopTitleOverlay = document.querySelectorAll(
+  ".anime__top__overlay span"
+);
 const AnimeTopStatus = document.querySelectorAll(".anime__top__rating .status");
 const AnimeTopScore = document.querySelectorAll(".anime__top__rating .score");
 
 const AnimeTopImage = document.querySelectorAll(".anime__top__image img");
-
 
 const TopAnimeDiv = (data) => {
   let count = 0;
@@ -188,7 +214,6 @@ const TopAnimeDiv = (data) => {
     AnimeTopScore[count].innerHTML = data[count].score;
 
     AnimeTopImage[count].src = data[count].images.jpg.large_image_url;
-
 
     AnimeTopTitleOverlay[count].innerHTML = data[count].title;
 

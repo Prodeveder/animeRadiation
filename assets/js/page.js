@@ -1,8 +1,10 @@
+const GetLocalStorageItem = (data) => {
+    const result = localStorage.getItem(data);
+    return result;
+};  
+let id = document.querySelector('.id');
 
-const animeId = localStorage.getItem("anime__id")
-
-console.log('Anime Id : ',animeId)
+id.innerHTML = GetLocalStorageItem('anime_id');
 
 
-const home = document.querySelector('.home')
-home.innerHTML = animeId;
+console.log(GetLocalStorageItem('anime_id'));
