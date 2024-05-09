@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <script src="assets/js/index.js" defer></script>
+    <script src="assets/js/components.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+
   </head>
   <body>
     <div class="navbar__wrapper">
@@ -29,7 +32,7 @@
               class="navbar__search"
               placeholder="Search anime..."
             />
-            <div class="navbar__search__btn">
+            <div class="navbar__search__btn" onclick="searchSomething()">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
@@ -38,13 +41,26 @@
 
               <span>Search</span>
             </div>
+
+            <div class="search__results__wrapper">
+              <div class="results">
+                <div class="results__img">
+                  <img src="assets/images/img.png" alt="">
+                </div>
+                <div class="result__content">
+                  <div class="title">Loading Anime Title</div>
+                  <div class="year">2012</div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
       <div class="navbar__wrapper__item">
         <ul class="navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Genres</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="search.html">Search</a></li>
           <li><a href="random.html">Random</a></li>
         </ul>
@@ -54,13 +70,12 @@
     <header></header>
 
     <div class="slider">
-      <!-- list Items -->
       <div class="list">
         <div class="item active">
-          <img src="assets/images/main/1.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">
             <div class="anime__span">Home | Tv</div>
-            <div class="anime__title">Beet the Vandel Buster</div>
+            <div class="anime__title">Lorem ipsum dolor sit amet.</div>
             <div class="content__item">
               <div class="anime__genres">
                 <div class="genres">Action</div>
@@ -70,115 +85,119 @@
               </div>
             </div>
 
-            <div class="anime__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto perspiciatis tempora rem deleniti sapiente earum neque
-              saepe eum fugiat soluta nihil facilis porro, qui laboriosam, vel
-              animi magni ad! Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Labore ipsam distinctio, nemo necessitatibus
-              quos sunt repellat consectetur fugiat, harum quod error magnam,
-              pariatur vero. Veniam ex est assumenda sed sapiente!
+             <div class="anime__text">
+              Loading Anime Data....
             </div>
             <div class="anime__btn">Read More</div>
           </div>
         </div>
         <div class="item">
-          <img src="assets/images/main/2.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">
             <div class="anime__span">Home | Tv</div>
-            <div class="anime__title">Demon Slayer : The Last One</div>
-            <div class="anime__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto perspiciatis tempora rem deleniti sapiente earum neque
-              saepe eum fugiat soluta nihil facilis porro, qui laboriosam, vel
-              animi magni ad! Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Labore ipsam distinctio, nemo necessitatibus
-              quos sunt repellat consectetur fugiat, harum quod error magnam,
-              pariatur vero. Veniam ex est assumenda sed sapiente!
+            <div class="anime__title">Lorem ipsum dolor sit amet.</div>
+            <div class="content__item">
+              <div class="anime__genres">
+                <div class="genres">Action</div>
+                <div class="genres">Sport</div>
+                <div class="genres">Adventure</div>
+                <div class="genres">Fiction</div>
+              </div>
             </div>
-            <div class="anime__btn">Read More</div>
-          </div>
-        </div>
 
-        <div class="item">
-          <img src="assets/images/main/3.jpg" />
-          <div class="content">
-            <div class="anime__span">Home | Tv</div>
-            <div class="anime__title">Demon Slayer : The Last One</div>
-            <div class="anime__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto perspiciatis tempora rem deleniti sapiente earum neque
-              saepe eum fugiat soluta nihil facilis porro, qui laboriosam, vel
-              animi magni ad! Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Labore ipsam distinctio, nemo necessitatibus
-              quos sunt repellat consectetur fugiat, harum quod error magnam,
-              pariatur vero. Veniam ex est assumenda sed sapiente!
+             <div class="anime__text">
+              Loading Anime Data....
             </div>
             <div class="anime__btn">Read More</div>
           </div>
         </div>
-
         <div class="item">
-          <img src="assets/images/main/4.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">
             <div class="anime__span">Home | Tv</div>
-            <div class="anime__title">Demon Slayer : The Last One</div>
-            <div class="anime__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto perspiciatis tempora rem deleniti sapiente earum neque
-              saepe eum fugiat soluta nihil facilis porro, qui laboriosam, vel
-              animi magni ad! Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Labore ipsam distinctio, nemo necessitatibus
-              quos sunt repellat consectetur fugiat, harum quod error magnam,
-              pariatur vero. Veniam ex est assumenda sed sapiente!
+            <div class="anime__title">Lorem ipsum dolor sit amet.</div>
+            <div class="content__item">
+              <div class="anime__genres">
+                <div class="genres">Action</div>
+                <div class="genres">Sport</div>
+                <div class="genres">Adventure</div>
+                <div class="genres">Fiction</div>
+              </div>
+            </div>
+
+             <div class="anime__text">
+              Loading Anime Data....
             </div>
             <div class="anime__btn">Read More</div>
           </div>
         </div>
-
         <div class="item">
-          <img src="assets/images/main/5.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">
             <div class="anime__span">Home | Tv</div>
-            <div class="anime__title">Demon Slayer : The Last One</div>
-            <div class="anime__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              architecto perspiciatis tempora rem deleniti sapiente earum neque
-              saepe eum fugiat soluta nihil facilis porro, qui laboriosam, vel
-              animi magni ad! Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Labore ipsam distinctio, nemo necessitatibus
-              quos sunt repellat consectetur fugiat, harum quod error magnam,
-              pariatur vero. Veniam ex est assumenda sed sapiente!
+            <div class="anime__title">Lorem ipsum dolor sit amet.</div>
+            <div class="content__item">
+              <div class="anime__genres">
+                <div class="genres">Action</div>
+                <div class="genres">Sport</div>
+                <div class="genres">Adventure</div>
+                <div class="genres">Fiction</div>
+              </div>
+            </div>
+
+             <div class="anime__text">
+              Loading Anime Data....
+            </div>
+
+           
+            <div class="anime__btn">Read More</div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/images/img.png" />
+          <div class="content">
+            <div class="anime__span">Home | Tv</div>
+            <div class="anime__title">Lorem ipsum dolor sit amet.</div>
+            
+            <div class="content__item">
+              <div class="anime__genres">
+                <div class="genres">Action</div>
+                <div class="genres">Sport</div>
+                <div class="genres">Adventure</div>
+                <div class="genres">Fiction</div>
+              </div>
+            </div>
+
+             <div class="anime__text">
+              Loading Anime Data....
             </div>
             <div class="anime__btn">Read More</div>
           </div>
         </div>
       </div>
-      <!-- button arrows -->
       <div class="arrows">
         <button id="prev"><</button>
         <button id="next">></button>
       </div>
-      <!-- thumbnail -->
       <div class="thumbnail">
         <div class="item active">
-          <img src="assets/images/main/1.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">Name Slider</div>
         </div>
         <div class="item">
-          <img src="assets/images/main/2.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">Name Slider</div>
         </div>
         <div class="item">
-          <img src="assets/images/main/3.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">Name Slider</div>
         </div>
         <div class="item">
-          <img src="assets/images/main/4.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">Name Slider</div>
         </div>
         <div class="item">
-          <img src="assets/images/main/5.jpg" />
+          <img src="assets/images/img.png" />
           <div class="content">Name Slider</div>
         </div>
       </div>
@@ -229,186 +248,7 @@
             <span>2024</span>
           </div>
         </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
+
       </div>
     </div>
     <div class="main__content__section">
@@ -497,12 +337,7 @@
                 </div>
               </div>
             </div>
-            <div class="review">
-              <div class="review__wrapper"></div>
-            </div>
-            <div class="review">
-              <div class="review__wrapper"></div>
-            </div>
+
           </div>
         </div>
         <div class="main__content__side">

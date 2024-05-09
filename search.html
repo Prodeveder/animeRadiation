@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
 
-    <script src="assets/js/index.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
   </head>
   <body>
     <div class="navbar__wrapper">
@@ -29,7 +29,7 @@
               class="navbar__search"
               placeholder="Search anime..."
             />
-            <div class="navbar__search__btn">
+            <div class="navbar__search__btn" onclick="searchSomething()">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
@@ -38,13 +38,26 @@
 
               <span>Search</span>
             </div>
+
+            <div class="search__results__wrapper">
+              <div class="results">
+                <div class="results__img">
+                  <img src="assets/images/img.png" alt="">
+                </div>
+                <div class="result__content">
+                  <div class="title">Loading Anime Title</div>
+                  <div class="year">2012</div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
       <div class="navbar__wrapper__item">
         <ul class="navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Genres</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="search.html">Search</a></li>
           <li><a href="random.html">Random</a></li>
         </ul>
@@ -64,208 +77,482 @@
     </div>
 
     <div class="content__grid__main">
-      <div class="content__grid">
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
+      <div class="content__grid contentSearch">
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>8.18 / 10</span>
         </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
+        <div class="read__more__btn" data-animeid="813">Read More</div>
       </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1277/142022l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z
+      <span>8.18</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.57 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="986">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1978/138488l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Bardock, The Father of Goku
+      <span>7.57</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.14 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="52282">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1376/124922l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z x Kao
+      <span>6.14</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.4 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="14837">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1734/93678l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Battle of Gods
+      <span>7.4</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.04 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="25389">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1833/93679l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Resurrection 'F'
+      <span>7.04</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.32 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="901">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1451/121524l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Broly - The Legendary Super Saiyan
+      <span>7.32</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.6 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="905">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1015/93675l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Fusion Reborn
+      <span>7.6</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.07 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="898">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1113/121523l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Cooler's Revenge
+      <span>7.07</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.69 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="896">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1956/90345l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: The Tree of Might
+      <span>6.69</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.77 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="903">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1191/93673l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Broly - Second Coming
+      <span>6.77</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.36 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="906">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1704/93676l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Wrath of the Dragon
+      <span>7.36</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.8 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="899">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1007/93669l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: The Return of Cooler
+      <span>6.8</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>5.78 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="904">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1035/93674l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Bio-Broly
+      <span>5.78</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.84 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="900">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1723/93670l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Super Android 13!
+      <span>6.84</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.63 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="894">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1258/90343l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Dead Zone
+      <span>6.63</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.12 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="902">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1730/93672l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Bojack Unbound
+      <span>7.12</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.55 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="897">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1620/93667l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Lord Slug
+      <span>6.55</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.59 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="895">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1017/90344l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: The World's Strongest
+      <span>6.59</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.43 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="6714">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/2/55203l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Gather Together! Goku's World
+      <span>6.43</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.5 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="22699">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1667/112037l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Looking Back at it All: The Dragon Ball Z Year-End Show!
+      <span>6.5</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.79 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="985">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/7/10207l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: The History of Trunks
+      <span>7.79</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.72 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="984">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1021/116787l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Plan to Eradicate the Saiyans
+      <span>6.72</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>6.54 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="22695">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/7/60343l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z: Summer Vacation Special
+      <span>6.54</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.74 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="6033">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/1102/133990l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z Kai
+      <span>7.74</span>
+    </div>
+  </div>
+    
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+          </svg>
+          <span>7.7 / 10</span>
+        </div>
+        <div class="read__more__btn" data-animeid="22777">Read More</div>
+      </div>
+      <img src="https://cdn.myanimelist.net/images/anime/10/59275l.jpg" alt="">
+    </div>
+    <div class="grid__text">
+    Dragon Ball Z Kai: The Final Chapters
+      <span>7.7</span>
+    </div>
+  </div>
+    </div>
     </div>
 
     <footer>

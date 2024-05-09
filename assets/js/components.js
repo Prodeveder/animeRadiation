@@ -1,55 +1,22 @@
-// sourceFile.js
-const colorCode = "Hello WOrld";
 
-const AddLocalStorageItem = (itemName, data) => {
-  localStorage.setItem(itemName, data);
+
+const getAnimeHeader = async () => {
+  const response = await (
+    await (await fetch("https://api.jikan.moe/v4/top/anime")).json()
+  ).data;
+
+  return response;
 };
 
-const resultDiv = (title, score, image, id) => {
-  let div = `
-        <div class="result" id="RedirectAnime" data-Anime_ID="3434">
-        <div class="overlay__result" data-Anime_ID="${id}"></div>
+const getAnimeReviews = async () => {
+  const response = await (
+    await (await fetch("https://api.jikan.moe/v4/reviews/anime")).json()
+  ).data;
 
-            <div class="result__image">
-                <img
-                    src="${image}"
-                    alt=""
-                    class="result__img"
-                />
-            </div>
-            <div class="results__content">
-                <div class="result__title">${title}</div>
-                <div class="result__stars">
-                    <div class="score">${score}</div>
-                </div>
-            </div>
-        </div>
-    `;
-
-  return div;
+  return response;
 };
 
-const itemTitle = document.querySelectorAll(
-  ".slider .list .item .content .title"
-);
-const itemImages = document.querySelectorAll(".slider .list .item img");
-const thumbImages = document.querySelectorAll(".thumb-img");
-const animeGenres = document.querySelectorAll(".anime__genres");
-const stars = document.querySelectorAll(".star");
-const scores = document.querySelectorAll(".score");
-const stats = document.querySelectorAll(".stats");
-const animeDescription = document.querySelectorAll(".description");
-const readMoreBtn = document.querySelectorAll(".readMore");
-
-const GenerateGenres = (genres) => {
-  let div = ``;
-  genres.forEach((element) => {
-    div += `<div class="genre">${element.name}</div>`;
-  });
-  return div;
-};
-
-const ShortDescription = (text, textLimit) => {
+const shortenText = (text, textLimit) => {
   let newText = text.split(" ");
   let i = 0;
   let finalText = [];
@@ -65,160 +32,187 @@ const ShortDescription = (text, textLimit) => {
   }
 };
 
-const displayStar = (score) => {
-  let limit = Math.floor((score / 10) * 5);
-  let stars = ``;
+const GenerateGenres = (genres) => {
+  let div = ``;
+  genres.forEach((element) => {
+    div += `<div class="genres">${element.name}</div>`;
+  });
+  return div;
+};
 
+const GenerateHeader = async (data) => {
+  // Header Components
+  const animeHeaderTitle = document.querySelectorAll(".anime__title");
+  const animeHeaderSpan = document.querySelectorAll(".anime__span");
+  const animeHeaderText = document.querySelectorAll(".anime__text");
+  const animeHeaderGenres = document.querySelectorAll(".anime__genres");
+  const animeHeaderImages = document.querySelectorAll(".item img");
+  const animeHeaderImagesThumb = document.querySelectorAll(
+    ".thumbnail .item img"
+  );
+  let Data = await data;
   let count = 0;
-  while (count < limit) {
-    stars += '<i class="fa-solid fa-star fa-lg" style="color: #132543;"></i>';
+  while (count < 5) {
+    animeHeaderImages[count].src = Data[count].images.jpg.large_image_url;
+    animeHeaderImagesThumb[count].src = Data[count].images.jpg.large_image_url;
+
+    animeHeaderTitle[count].innerHTML = Data[count].title_english;
+    animeHeaderText[count].innerHTML = shortenText(Data[count].synopsis, 60);
+    animeHeaderGenres[count].innerHTML = GenerateGenres(Data[count].genres);
+    document.querySelectorAll(".anime__btn")[count].dataset.id =
+      Data[count].mal_id;
+
+    animeHeaderSpan[
+      count
+    ].innerHTML = `${Data[count].type} | ${Data[count].source}`;
+
     count++;
   }
 
-  let i = 0;
-  while (i < 5 - limit) {
-    stars += '<i class="fa-solid fa-star fa-lg" style="color: #f0e9ec;"></i>';
+  document.querySelectorAll(".anime__btn").forEach((element) => {
+    element.addEventListener("click", () => {
+      let animeId = element.dataset.id;
+      localStorage.setItem("anime__id", animeId);
+      window.location.href = "/random.html";
+    });
+  });
+};
+
+const MainContentGrid = document.querySelectorAll(".content__grid");
+
+const GenerateMain = async (data) => {
+  MainContentGrid[0].innerHTML = "";
+
+  let Data = await data;
+
+  let count = 24;
+  while (count > 4) {
+    let div = `
+    <div class="grid">
+    <div class="grid__image">
+      <div class="grid__overlay">
+        <div class="overlay__star">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path
+              d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+            />
+          </svg>
+          <span>${Data[count].score} / 10</span>
+        </div>
+        <div class="read__more__btn" data-AnimeID = '${Data[count].mal_id}'>Read More</div>
+      </div>
+      <img src=${Data[count].images.jpg.large_image_url} alt="" />
+    </div>
+    <div class="grid__text">
+    ${Data[count].title_english}
+      <span>${
+        Data[count].year === null
+        ? ''
+        : Data[count].year
+      }</span>
+    </div>
+  </div>
+    `;
+    MainContentGrid[0].innerHTML += div;
+    count--;
+  }
+  document.querySelectorAll(".read__more__btn").forEach((element) => {
+    element.addEventListener("click", () => {
+      let animeId = element.dataset.animeid;
+      localStorage.setItem("anime__id", animeId);
+      window.location.href = "/random.html";
+    });
+  });
+};
+const generateStarsN = (index) => {
+  let nIndex = (Math.floor(index) / 10) * 5;
+  let stars = '';
+  let i = 1;
+  while( i < nIndex + 1) {
+    stars += `
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 576 512"
+        >
+        <path
+        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+      />
+    </svg>
+    `
     i++;
   }
+
+  if (index % 10 > 0) {
+    stars += `
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path d="M288 0c-12.2 .1-23.3 7-28.6 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3L288 439.8V0zM429.9 512c1.1 .1 2.1 .1 3.2 0h-3.2z"/>
+      </svg>
+    `;
+  }
+
   return stars;
 };
 
-const headerDiv = (data) => {
-  let count = 0;
-  while (count < 5) {
-    readMoreBtn[count].dataset.anime_id = data[count].mal_id;
-    itemImages[count].src = data[count].images.jpg.large_image_url;
-    thumbImages[count].src = data[count].images.jpg.large_image_url;
-    animeDescription[count].innerHTML = ShortDescription(
-      data[count].synopsis,
-      45
-    );
+const GenerateReviews = async (data) => {
+  const MainReviews = document.querySelector(".main__content__review");
+  MainReviews.innerHTML = "";
+  let Data = await data;
 
-    itemTitle[count].innerHTML = data[count].title_english;
-    stats[count].innerHTML = `${data[count].rating} | ${data[count].type}`;
-
-    scores[count].innerHTML = Math.floor((data[count].score / 10) * 5);
-    stars[count].innerHTML = displayStar(data[count].score);
-
-    animeGenres[count].innerHTML = GenerateGenres(data[count].genres);
-    count++;
-  }
-};
-
-const disTv = document.querySelectorAll(".dis_tv");
-const disStatus = document.querySelectorAll(".dis_status");
-const disScore = document.querySelectorAll(".dis_tv");
-const disImage = document.querySelectorAll(".display__img");
-const disTitle = document.querySelectorAll(".display__content span");
-const disTitleMain = document.querySelectorAll(".display__content");
-
-
-disTitle.forEach((element) => {
-  element.addEventListener("click", () => {
-    let id = element.dataset.anime_id;
-    AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
-  });
-});
-disTitleMain.forEach((element) => {
-  element.addEventListener("click", () => {
-    let id = element.dataset.anime_id;
-    AddLocalStorageItem("anime_id", id);
-    window.location.href = "/page.html";
-  });
-});
-
-const TopDiv = (data) => {
-  let count = 0;
-  while (count < 13) {
-    let index = Math.floor(Math.random() * 25);
-    disImage[count].src = data[index].images.jpg.large_image_url;
-    disTitle[count].innerHTML = data[index].title_english;
-    disTitle[count].dataset.anime_id = data[index].mal_id;
-    disTitleMain[count].dataset.anime_id = data[index].mal_id;
-    disScore[count].innerHTML = displayStar(data[index].score);
-    disTv[count].innerHTML = data[index].type;
-    disStatus[count].innerHTML = data[index].status;
-    count++;
-  }
-};
-
-const getYear = (data) => {
-  let date = new Date(data);
-
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-
-  var formattedDate =
-    year +
-    "-" +
-    (month < 10 ? "0" + month : month) +
-    "-" +
-    (day < 10 ? "0" + day : day);
-
-  return formattedDate;
-};
-
-// The Reviews
-const reviewTitles = document.querySelectorAll(".review__title");
-const reviewImages = document.querySelectorAll(".review__img");
-const reviewText = document.querySelectorAll(".review__text");
-const reviewTags = document.querySelectorAll(".tags");
-const reviewStar = document.querySelectorAll(".stars.review__star .star");
-const reviewScore = document.querySelectorAll(".review-score");
-const reviewBy = document.querySelectorAll(".by");
-const reviewTime = document.querySelectorAll(".time");
-
-// reviewAnimeTags.forEach( (element) => {
-//   // element.innerHTML = '';
-
-//   console.log(element)
-// })
-const reviewDiv = (data) => {
   let count = 0;
   while (count < 3) {
-    let index = Math.floor(Math.random() * 25);
-    reviewTitles[count].innerHTML = data[count].entry.title;
-    reviewBy[count].innerHTML = data[count].user.username;
-    reviewTags[count].innerHTML = data[count].tags;
-    reviewScore[count].innerHTML = (data[count].score / 10) * 5;
-    reviewStar[count].innerHTML = displayStar(data[count].score);
+    let div = `
+    <div class="review">
+              <div class="review__wrapper">
+                <div class="review__image">
+                  <img src=${
+                    Data[count].entry.images.webp.large_image_url
+                  } alt="" />
+                </div>
+                <div class="review__content">
+                  <div class="review__span">
+                    <span class="by">By James Rod</span>
+                    <span class="time">10/02/2023</span>
+                  </div>
+                  <div class="review__title">${Data[count].entry.title}</div>
+                  <div class="review__item">
+                    <div class="review__stars">
+                      ${generateStarsN(7)}
+                    </div>
+                    <div class="review__score">${Data[count].score}</div>
+                    <div class="review__tag">${Data[count].tags[0]}</div>
+                  </div>
+                  <div class="review__text">
+                    ${shortenText(Data[count].review, 65)}
+                  </div>
+                  <div class="review__btn">Continue Reading</div>
+                </div>
+              </div>
+            </div>
+    `;
 
-    reviewTime[count].innerHTML = getYear(data[count].date);
-    reviewImages[count].src = data[count].entry.images.jpg.large_image_url;
-
-    reviewText[count].innerHTML = ShortDescription(data[count].review, 65);
-
-    // reviewImages[count].src = data[count].images.jpg.large_image_url;
-    // console.log(data[count])
+    MainReviews.innerHTML += div;
     count++;
   }
 };
 
-const AnimeTopTitle = document.querySelectorAll(".anime__top__title");
-const AnimeTopTitleOverlay = document.querySelectorAll(
-  ".anime__top__overlay span"
-);
-const AnimeTopStatus = document.querySelectorAll(".anime__top__rating .status");
-const AnimeTopScore = document.querySelectorAll(".anime__top__rating .score");
+const ContentLoad = (target) => {
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
 
-const AnimeTopImage = document.querySelectorAll(".anime__top__image img");
+        GenerateMain(getAnimeHeader());
 
-const TopAnimeDiv = (data) => {
-  let count = 0;
-  while (count < 3) {
-    // let index = Math.floor(Math.random() * 25);
-    AnimeTopTitle[count].innerHTML = data[count].title;
-    AnimeTopStatus[count].innerHTML = data[count].status;
-    AnimeTopScore[count].innerHTML = data[count].score;
-
-    AnimeTopImage[count].src = data[count].images.jpg.large_image_url;
-
-    AnimeTopTitleOverlay[count].innerHTML = data[count].title;
-
-    count++;
-  }
+        observer.disconnect();
+      }
+    });
+  });
+  io.observe(target);
 };
 
-export { resultDiv, headerDiv, TopDiv, reviewDiv, TopAnimeDiv };
+MainContentGrid.forEach(ContentLoad);
+
+// Declared Function
+GenerateHeader(getAnimeHeader());
+GenerateReviews(getAnimeReviews());

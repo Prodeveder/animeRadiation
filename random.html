@@ -7,13 +7,8 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
 
-    <script src="assets/js/chart.js" defer></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" defer></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script src="assets/js/index.js" defer></script>
+    <script src="assets/js/random.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
   </head>
   <body>
     <div class="navbar__wrapper">
@@ -35,7 +30,7 @@
               class="navbar__search"
               placeholder="Search anime..."
             />
-            <div class="navbar__search__btn">
+            <div class="navbar__search__btn" onclick="searchSomething()">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
@@ -44,13 +39,26 @@
 
               <span>Search</span>
             </div>
+
+            <div class="search__results__wrapper">
+              <div class="results">
+                <div class="results__img">
+                  <img src="assets/images/img.png" alt="">
+                </div>
+                <div class="result__content">
+                  <div class="title">Loading Anime Title</div>
+                  <div class="year">2012</div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
       <div class="navbar__wrapper__item">
         <ul class="navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Genres</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="search.html">Search</a></li>
           <li><a href="random.html">Random</a></li>
         </ul>
@@ -62,7 +70,7 @@
         <div class="anime__header__container">
           <div class="anime__header__container__grid">
             <div class="anime__header__image__container">
-              <img src="assets/images/main/4.jpg" alt="" class="anime__img" />
+              <img src="assets/images/img.png" alt="" class="anime__img" />
               <div class="overlay__streaming">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                   <path
@@ -81,7 +89,7 @@
               </div>
             </div>
             <div class="anime__header__content">
-              <div class="title">AnimeRadiation Generation</div>
+              <div class="title">Lorem, ipsum dolor.</div>
               <div class="content__span">
                 <span class="content__year">1986</span>
                 <span class="type">Action / Adventure</span>
@@ -141,17 +149,7 @@
                 </div>
 
                 <div class="synopsis">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam, impedit! Cum ipsam eos atque, nemo id rem voluptatem
-                  qui est? Illo ea numquam eius quo. Laboriosam facilis
-                  recusandae similique asperiores. Lorem ipsum dolor, sit amet
-                  consectetur adipisicing elit. Repellat adipisci iusto eveniet
-                  sequi, magni animi error! Praesentium quisquam quia odit ad
-                  mollitia vero voluptatem sint delectus non voluptate?
-                  Nesciunt, dolore? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Excepturi ipsum atque quia voluptas autem
-                  quos odio minima illum dicta, commodi eligendi eum nesciunt
-                  laborum corrupti dolorum ipsa similique quod? Nostrum?
+                 Loading Synopsis
                 </div>
                 <div class="content__stats">
                   <div class="content__stats__item">
@@ -215,16 +213,16 @@
             <div class="more__anime__header">More Anime</div>
             <div class="more__anime__grid">
               <div class="anime__grid">
-                <img src="assets/images/main/11.jpg" alt="" />
+                <img src="assets/images/img.png" alt="" />
               </div>
               <div class="anime__grid">
-                <img src="assets/images/main/12.jpg" alt="" />
+                <img src="assets/images/img.png" alt="" />
               </div>
               <div class="anime__grid">
-                <img src="assets/images/main/13.jpg" alt="" />
+                <img src="assets/images/img.png" alt="" />
               </div>
               <div class="anime__grid">
-                <img src="assets/images/main/14.jpg" alt="" />
+                <img src="assets/images/img.png" alt="" />
               </div>
             </div>
           </div>
@@ -245,59 +243,57 @@
                 Anime Information
               </div>
               <div class="anime__info">
-                Airing
-                <span class="an__airing">Ep 5: 5d 1h 11m</span>
+                Status
+                <span class="an__status">Loading data...</span>
               </div>
               <div class="anime__info">
-                Format
-                <span class="an__tv">Tv</span>
+                type
+                <span class="an__type">Loading data...</span>
               </div>
               <div class="anime__info">
                 Score
-                <span class="an__score">7.5</span>
+                <span class="an__score">Loading data...</span>
               </div>
               <div class="anime__info">
                 Season
-                <span class="an__tv">Winter</span>
+                <span class="an__season">Loading data...</span>
               </div>
               <div class="anime__info">
-                Genres
-                <span class="an__genres">
-                  <span>Action, Drama, Sport</span>
-                </span>
+                Duration
+                <span class="an__duration">Loading data...</span>
               </div>
               <div class="anime__info">
-                Source
-                <span class="an__tv">Manga</span>
-              </div>
-              <div class="anime__info">
-                Season
-                <span class="an__tv">Winter</span>
-              </div>
-              <div class="anime__info">
-                Genres
-                <span class="an__genres">
-                  <span>Action, Drama, Sport</span>
-                </span>
+                Rating
+                <span class="an__rating">Loading data...</span>
               </div>
               <div class="anime__info">
                 Source
-                <span class="an__tv">Manga</span>
+                <span class="an__source">Loading data...</span>
+              </div>
+              <div class="anime__info">
+                Episodes
+                <span class="an__episodes">Loading data...</span>
               </div>
               <div class="anime__info">
                 Genres
-                <span class="an__genres">
-                  <span>Action, Drama, Sport</span>
-                </span>
+                <span class="an__genres">Loading data...</span>
               </div>
               <div class="anime__info">
-                Source
-                <span class="an__tv">Manga</span>
+                Aired
+                <span class="an__aired">Loading data...</span>
+              </div>
+              <div class="anime__info">
+                Broadcast
+                <span class="an__broadcast">Loading data...</span>
+              </div>
+              <div class="anime__info">
+                Producers
+                <span class="an__producers">Loading data...</span>
               </div>
             </div>
           </div>
           <div class="anime__other__stats">
-            <div class="anime__info__title" style="padding-bottom: 16px;">
+            <div class="anime__info__title animeStats" style="padding-bottom: 16px">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
                   d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm64 192c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm64-64c0-17.7 14.3-32 32-32s32 14.3 32 32V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V160zM320 288c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32z"
@@ -308,41 +304,39 @@
             <div class="anime__other__info">
               <div class="anime__info">
                 Watching
-                <span class="an__airing">207368</span>
+                <span class="an__watching">Loading stats...</span>
               </div>
               <div class="anime__info">
                 On Hold
-                <span class="an__tv">92481</span>
+                <span class="an__hold">Loading stats...</span>
               </div>
               <div class="anime__info">
                 Dropped
-                <span class="an__score">102641</span>
+                <span class="an__drop">Loading stats...</span>
               </div>
               <div class="anime__info">
                 Plan To Watch
-                <span class="an__tv">45126</span>
+                <span class="an__watch">Loading stats...</span>
               </div>
               <div class="anime__info">
                 Completed
-                <span class="an__genres">
-                  <span>98745</span>
+                <span class="an__completed">
+                  <span>Loading stats...</span>
                 </span>
               </div>
             </div>
-
-            
           </div>
         </div>
         <div class="anime__other__main__wrapper">
           <div class="anime__other__image__wrapper">
             <div class="anime__other__image">
-              <img src="assets/images/main/4.jpg" alt="" />
+              <img src="assets/images/img.png" alt="" />
             </div>
             <div class="anime__other__image">
-              <img src="assets/images/main/1.jpg" alt="" />
+              <img src="assets/images/img.png" alt="" />
             </div>
             <div class="anime__other__image">
-              <img src="assets/images/main/3.jpg" alt="" />
+              <img src="assets/images/img.png" alt="" />
             </div>
           </div>
           <div class="anime__info__title ani__title">
@@ -355,117 +349,11 @@
           </div>
           <div class="anime__characters__wrapper">
             <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/10.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/12.jpg" alt="" />
-              </div>
-            </div>
-            <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/10.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/12.jpg" alt="" />
-              </div>
-            </div>
-
-            <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/10.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/12.jpg" alt="" />
-              </div>
-            </div>
-            <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/10.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/12.jpg" alt="" />
-              </div>
-            </div>
-            <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/10.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/12.jpg" alt="" />
-              </div>
-            </div>
-            <div class="anime__character">
-              <div class="anime__character__img">
-                <img src="assets/images/main/15.jpg" alt="" />
-              </div>
-              <div class="anime__character__content">
-                <div class="anime__character__name">
-                  <span>Kafka Hibino</span>
-                  <span>Masay Seto</span>
-                </div>
-                <div class="anime__character__role">
-                  <span>Main</span>
-                  <span>Actor</span>
-                </div>
-              </div>
-              <div class="anime__character__img actor">
-                <img src="assets/images/main/2.jpg" alt="" />
-              </div>
+              <div class="error">😰No Characters Found!</div>
             </div>
           </div>
 
-          <div class="anime__info__title ani__title">
+          <div class="anime__info__title ani__title reviewTitle">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
               <path
                 d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"
@@ -478,7 +366,7 @@
             <div class="anime__review">
               <div class="anime__review__Span">
                 <span>Reviewed by </span>
-                <div class="reviewed__by">SillioHooie</div>
+                <div class="reviewed__by">Loading...</div>
                 <div class="review__score">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path
@@ -490,19 +378,14 @@
               </div>
 
               <div class="anime__review__text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-                porro dolorem voluptatum debitis quasi soluta atque laudantium
-                aperiam reiciendis, molestiae fugiat ut inventore laborum
-                quaerat! Eveniet ducimus dolore voluptatum dolores. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit. Numquam, autem.
-                Quaerat fugit voluptate enim ea!
+                Loading Anime Review Text
               </div>
               <div class="anime__review__read">Read More</div>
             </div>
             <div class="anime__review">
               <div class="anime__review__Span">
                 <span>Reviewed by </span>
-                <div class="reviewed__by">SillioHooie</div>
+                <div class="reviewed__by">Loading...</div>
                 <div class="review__score">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path
@@ -514,19 +397,17 @@
               </div>
 
               <div class="anime__review__text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-                porro dolorem voluptatum debitis quasi soluta atque laudantium
-                aperiam reiciendis, molestiae fugiat ut inventore laborum
-                quaerat! Eveniet ducimus dolore voluptatum dolores. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit. Numquam, autem.
-                Quaerat fugit voluptate enim ea!
+                Loading Anime Review Text
+              </div>
+              <div class="anime__review__text">
+                Loading Anime Review Text
               </div>
               <div class="anime__review__read">Read More</div>
             </div>
             <div class="anime__review">
               <div class="anime__review__Span">
                 <span>Reviewed by </span>
-                <div class="reviewed__by">SillioHooie</div>
+                <div class="reviewed__by">Loading...</div>
                 <div class="review__score">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path
@@ -538,12 +419,7 @@
               </div>
 
               <div class="anime__review__text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-                porro dolorem voluptatum debitis quasi soluta atque laudantium
-                aperiam reiciendis, molestiae fugiat ut inventore laborum
-                quaerat! Eveniet ducimus dolore voluptatum dolores. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit. Numquam, autem.
-                Quaerat fugit voluptate enim ea!
+                Loading Anime Review Text
               </div>
               <div class="anime__review__read">Read More</div>
             </div>
@@ -561,7 +437,7 @@
             d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"
           />
         </svg>
-        Anime Reviews
+        More Animes
       </div>
       <div class="content__grid">
         <div class="grid">
@@ -577,91 +453,11 @@
               </div>
               <div class="read__more__btn">Read More</div>
             </div>
-            <img src="assets/images/main/1.jpg" alt="" />
+            <img src="assets/images/img.png" alt="" />
           </div>
           <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
-          </div>
-        </div>
-        <div class="grid">
-          <div class="grid__image">
-            <div class="grid__overlay">
-              <div class="overlay__star">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path
-                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                  />
-                </svg>
-                <span>7.5 / 10</span>
-              </div>
-              <div class="read__more__btn">Read More</div>
-            </div>
-            <img src="assets/images/main/1.jpg" alt="" />
-          </div>
-          <div class="grid__text">
-            Lorem ipsum dolor sit.
-            <span>2024</span>
+            Loading Anime Data...
+            <span>Loading Year...</span>
           </div>
         </div>
       </div>
